@@ -134,7 +134,7 @@ const AnalyticsPage = () => {
                         fill="#8884d8"
                         dataKey="value"
                       >
-                        {analytics.by_type.map((entry, index) => (
+                        {analytics.by_type.map((_entry, index) => (
                           <Cell
                             key={`cell-${index}`}
                             fill={COLORS[index % COLORS.length]}
@@ -174,7 +174,7 @@ const AnalyticsPage = () => {
                         fill="#8884d8"
                         dataKey="value"
                       >
-                        {analytics.by_country.map((entry, index) => (
+                        {analytics.by_country.map((_entry, index) => (
                           <Cell
                             key={`cell-${index}`}
                             fill={COLORS[index % COLORS.length]}
