@@ -39,7 +39,7 @@ const SearchForm = ({ onSearch, isLoading }: SearchFormProps) => {
           <Field.Root>
             <Field.Label>Search</Field.Label>
             <Input
-              placeholder="Search by name, city, or state..."
+              placeholder="Search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               size="lg"
