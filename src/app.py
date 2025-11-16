@@ -1,11 +1,23 @@
 #!/usr/bin/env python3
+import os
 import requests
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
 app = Flask(__name__, static_folder='dist', static_url_path='')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///breweries.db'
+
+# Database configuration - use PostgreSQL in production, SQLite locally
+if os.environ.get('DATABASE_URL'):
+    # Heroku provides DATABASE_URL, but we need to handle the postgres:// vs postgresql:// issue
+    database_url = os.environ.get('DATABASE_URL')
+    if database_url.startswith('postgres://'):
+        database_url = database_url.replace('postgres://', 'postgresql://', 1)
+    app.config['SQLALCHEMY_DATABASE_URI'] = database_url
+else:
+    # Local development - use SQLite
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///breweries.db'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Enable CORS for all routes
