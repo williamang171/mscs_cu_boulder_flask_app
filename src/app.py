@@ -105,13 +105,18 @@ def main():
     """Serve the React app in production"""
     return app.send_static_file('index.html')
 
-@app.route("/echo_user_input", methods=["POST"])
-def echo_input():
-    input_text = request.form.get("user_input", "")
-    return "You entered: " + input_text
-
 @app.route("/<path:path>")
 def serve_static(path):
+    """Serve static files from the React build"""
+    return app.send_static_file('index.html')
+
+@app.route("/favorites")
+def serve_static_fav(path):
+    """Serve static files from the React build"""
+    return app.send_static_file('index.html')
+
+@app.route("/analytics")
+def serve_static_fav(path):
     """Serve static files from the React build"""
     return app.send_static_file('index.html')
 
