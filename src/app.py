@@ -116,7 +116,7 @@ def serve_static_fav(path):
     return app.send_static_file('index.html')
 
 @app.route("/analytics")
-def serve_static_fav(path):
+def serve_static_analytics(path):
     """Serve static files from the React build"""
     return app.send_static_file('index.html')
 
