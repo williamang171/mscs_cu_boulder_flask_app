@@ -24,7 +24,7 @@ pip install -r requirements.txt
 export FLASK_APP=src/app.py
 ```
 
-5. Run the app
+5. Run the backend app
 
 ```bash
 flask run
